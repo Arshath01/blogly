@@ -51,11 +51,10 @@ export default function Post({ selectedCat, myPost }) {
   }, [selectedCat, myPost]);
   return (
     <div className="">
-      {category.length > 0 ? (
-        loading ? (
+      {loading ? (
           <Loading />
         ) : (
-          Array.isArray(category) &&
+          category.length > 0 &&
           category.map((post, index) => (
             <div key={index} className="space-y-2 border-b-2 py-4">
               <div className="flex justify-between items-center">
@@ -121,18 +120,5 @@ export default function Post({ selectedCat, myPost }) {
             </div>
           ))
         )
-      ) : (
-        <div className="h-[500px] flex flex-col justify-center items-center w-full rounded-lg  lg:p-4">
-          <img
-            src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705104000&semt=ais"
-            alt="no-posts"
-            className="h-[300px] w-[300px] mx-auto object-cover"
-          />
-          <center className="text-red-500 font-bold uppercase">
-            OOPS ! no posts
-          </center>
-        </div>
-      )}
-    </div>
-  );
+      ) 
 }
