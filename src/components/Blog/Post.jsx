@@ -47,7 +47,8 @@ const Post = ({ selectedCat, myPost }) => {
     <div>
       {loading ? (
         <Loading />
-      ) : category ? (
+      ) : (
+        category &&
         category.map((post, index) => (
           <div key={index} className="space-y-2 border-b-2 py-4">
             <div className="flex justify-between items-center">
@@ -112,17 +113,6 @@ const Post = ({ selectedCat, myPost }) => {
             </div>
           </div>
         ))
-      ) : (
-        <div className="h-[400px] w-[80%] mx-auto  mt-12 ] object-cover">
-          <img
-            src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705104000&semt=ais"
-            alt=""
-            className="h-full w-full"
-          />
-          <h1 className="text-center font-black text-red-400 upercase">
-            OOPS ! NO POST
-          </h1>
-        </div>
       )}
     </div>
   );
