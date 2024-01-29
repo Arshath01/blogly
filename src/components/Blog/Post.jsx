@@ -47,7 +47,7 @@ const Post = ({ selectedCat, myPost }) => {
     <div>
       {loading ? (
         <Loading />
-      ) : category.length > 0 ? (
+      ) : category ? (
         category.map((post, index) => (
           <div key={index} className="space-y-2 border-b-2 py-4">
             <div className="flex justify-between items-center">
