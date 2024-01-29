@@ -24,8 +24,8 @@ const Post = ({ selectedCat, myPost }) => {
         }
 
         setLoading(false);
-        console.log(response);
-        const { posts } = await response.json();
+        console.log(response.json());
+        const posts = await response.json();
 
         if (selectedCat && selectedCat !== "All") {
           const categoryBasedData = posts.filter(
