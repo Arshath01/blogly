@@ -73,7 +73,7 @@ const CreatePost = () => {
       posts: formData,
     };
     console.log(formData);
-    fetch("https://blogly-api.onrender.com/api/createPost", {
+    fetch("https://blogly-api.vercel.app/api/createPost", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
