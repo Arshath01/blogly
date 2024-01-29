@@ -7,6 +7,7 @@ const Post = ({ selectedCat, myPost }) => {
 
   useEffect(() => {
     const setCategoryBasedOnConditions = async () => {
+      setLoading(true);
       try {
         if (myPost) {
           setCategory(myPost);
@@ -24,7 +25,7 @@ const Post = ({ selectedCat, myPost }) => {
         }
 
         setLoading(false);
-        console.log(response.json());
+
         const posts = await response.json();
 
         if (selectedCat && selectedCat !== "All") {
@@ -47,8 +48,7 @@ const Post = ({ selectedCat, myPost }) => {
     <div>
       {loading ? (
         <Loading />
-      ) : (
-        category &&
+      ) : category ? (
         category.map((post, index) => (
           <div key={index} className="space-y-2 border-b-2 py-4">
             <div className="flex justify-between items-center">
@@ -113,6 +113,8 @@ const Post = ({ selectedCat, myPost }) => {
             </div>
           </div>
         ))
+      ) : (
+        "no posts"
       )}
     </div>
   );
