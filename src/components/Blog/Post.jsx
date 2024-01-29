@@ -15,7 +15,7 @@ const Post = ({ selectedCat, myPost }) => {
         }
 
         const response = await fetch(
-          "https://blogly-api.vercel.app/api/mypost"
+          "https://blogly-api.vercel.app/api/getposts"
         );
 
         if (!response.ok) {
