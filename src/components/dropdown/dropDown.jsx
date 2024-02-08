@@ -9,6 +9,7 @@ export default function DropDown() {
   const navigate = useNavigate();
 
   function handleLogout() {
+    navigate("/");
     logout();
     triggerMenu();
   }
