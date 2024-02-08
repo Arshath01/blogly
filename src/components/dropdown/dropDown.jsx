@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useUser } from "../../context/useContext";
+import { useNavigate } from "react-router-dom";
 
 export default function DropDown() {
   const { user, isMenu, logout, myPostSection, triggerMenu, createPost } =
     useUser();
+
+  const navigate = useNavigate();
 
   function handleLogout() {
     logout();
@@ -11,8 +14,10 @@ export default function DropDown() {
   }
 
   function handleCreateNewPost() {
-    createPost(true);
-    triggerMenu();
+    // createPost(true);
+    // triggerMenu();
+
+    navigate("/createpost");
   }
 
   function handleMyPost() {
@@ -23,9 +28,10 @@ export default function DropDown() {
           console.log(response);
         })
         .catch((err) => console.log(err));
-      myPostSection(true);
-      triggerMenu();
-      createPost(false);
+      // myPostSection(true);
+      // triggerMenu();
+      // createPost(false);
+      navigate("/mypost");
     }
   }
 

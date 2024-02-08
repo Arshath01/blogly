@@ -23,19 +23,11 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      {/* <Navbar /> */}
       <DropDown />
-      <Layout>
-        <div className="flex-auto min-h-screen">
-          {isCreatePost ? (
-            <CreatePost />
-          ) : myPost && user ? (
-            <Mypost />
-          ) : (
-            <BlogContent />
-          )}
-        </div>
-      </Layout>
+
+      <BlogContent />
+
       <Footer />
     </div>
   );

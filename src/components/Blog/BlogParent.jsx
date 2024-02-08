@@ -23,7 +23,7 @@ export default function BlogParent() {
   }
 
   return (
-    <div className="py-2 ">
+    <div className="py-2 flex-auto">
       <Category selectedCat={categoryHandler} />
 
       <Post selectedCat={selectedCat} />
