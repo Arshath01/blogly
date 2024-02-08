@@ -10,6 +10,7 @@ const Post = ({ selectedCat, myPost }) => {
       setLoading(true);
       try {
         if (myPost) {
+          console.log(myPost);
           setCategory(myPost);
           setLoading(false);
           return;
@@ -52,13 +53,16 @@ const Post = ({ selectedCat, myPost }) => {
         if (!response.ok) {
           throw new Error("Failed to remove post");
         }
-        setCategory(category.filter((cat) => cat.id !== category.id));
+        let updatedPost = category.filter((cat) => cat._id !== id);
+        setCategory(updatedPost);
+
         console.log("Post removed successfully");
       })
       .catch((error) => {
         console.error("Error removing post:", error);
       });
   }
+  console.log(category);
 
   return (
     <div>

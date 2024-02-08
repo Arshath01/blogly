@@ -29,7 +29,9 @@ export default function Mypost() {
         console.error("Error fetching data:", error);
       }
     }
-    fetchData();
+    if (user) {
+      fetchData();
+    }
   }, [user]);
 
   return loading ? (
