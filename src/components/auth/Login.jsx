@@ -29,7 +29,7 @@ export default function Login() {
 
   return (
     <div>
-      {user ? (
+      {!user ? (
         <GoogleLogin
           buttonText="Login"
           onSuccess={handleLogin}
@@ -40,11 +40,11 @@ export default function Login() {
           className="flex space-x-2 cursor-pointer items-center justify-end w-full"
           onClick={() => triggerMenu()}
         >
-          {/* <img
+          <img
             src={user.picture}
             className="rounded-full h-10 w-10"
             alt="profile"
-          /> */}
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="20"
