@@ -12,7 +12,6 @@ const CreatePost = () => {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
-  npm;
 
   // State to manage form data
   const [formData, setFormData] = useState({

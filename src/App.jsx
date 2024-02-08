@@ -7,6 +7,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import Mypost from "./components/Mypost/Mypost";
 import CreatePost from "./components/CreatePost/CreatePost";
 import { Navbar } from "./components";
+import DropDown from "./components/dropdown/dropDown";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <UserProvider>
           <Layout>
             <Navbar />
+            <DropDown />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/mypost" element={<Mypost />} />

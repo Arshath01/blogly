@@ -14,13 +14,14 @@ export default function DropDown() {
   }
 
   function handleCreateNewPost() {
-    // createPost(true);
-    // triggerMenu();
-
     navigate("/createpost");
+    createPost(true);
+    triggerMenu();
   }
 
   function handleMyPost() {
+    navigate("/mypost");
+    triggerMenu();
     if (user) {
       const { sub } = user;
       fetch(`http://localhost:3001/api/mypost/${sub}`)
@@ -28,17 +29,16 @@ export default function DropDown() {
           console.log(response);
         })
         .catch((err) => console.log(err));
-      // myPostSection(true);
-      // triggerMenu();
-      // createPost(false);
-      navigate("/mypost");
+      myPostSection(true);
+      triggerMenu();
+      createPost(false);
     }
   }
 
   return (
-    <div className="flex items-end flex-col w-full fixed z-10">
+    <div className="flex  flex-col   w-full fixed top-2 items-center z-10">
       {isMenu && (
-        <ul className="lg:rounded-xl p-5 absolute lg:w-[300px] flex flex-col items-center justify-center   mt-16 bg-gray-100 text-center  text-black w-full">
+        <ul className="lg:rounded-xl p-5 absolute  lg:w-[300px] flex flex-col items-center justify-center   mt-16 bg-gray-100 text-center  text-black w-full">
           <div className="flex items-center ">
             <svg
               xmlns="http://www.w3.org/2000/svg"

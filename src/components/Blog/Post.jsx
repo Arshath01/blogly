@@ -44,6 +44,22 @@ const Post = ({ selectedCat, myPost }) => {
     setCategoryBasedOnConditions();
   }, [selectedCat, myPost]);
 
+  function removePost(id) {
+    fetch(`https://blogly-api.vercel.app/api/removepost/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to remove post");
+        }
+        setCategory(category.filter((cat) => cat.id !== category.id));
+        console.log("Post removed successfully");
+      })
+      .catch((error) => {
+        console.error("Error removing post:", error);
+      });
+  }
+
   return (
     <div>
       {loading ? (
@@ -109,6 +125,14 @@ const Post = ({ selectedCat, myPost }) => {
                   {post.category}
                 </span>
                 <span>{post.createdAt.split("T")[0]}</span>
+                {myPost && (
+                  <button
+                    className="bg-red-500 text-white font-bold px-3 p-1 rounded-md shadow-md"
+                    onClick={() => removePost(post._id)}
+                  >
+                    Delete
+                  </button>
+                )}
               </div>
             </div>
           </div>
